@@ -1,21 +1,38 @@
 "use strict"
-
-const SimpleHexValues = ["#000000", "#FF0000", "#00FF00", "#0000FF", "#FFFFFF"];
-
 function run() {
-    let string = randomLetterAndAlphabet() ;
-    let count = 0;
+    let span = document.querySelector(".hex");
+    let option
 
-    let color = letterAndNumber()
-    console.log(color)
-    document.body.style.backgroundColor = color
+    window.addEventListener("click", event => {
+        let element = event.target;
+        let text = element.getAttribute("class");
+        const simple = simpleBG();
+        const hex = letterAndNumber();
+        const container = [simple, hex];
+        
+        if (text === "btn-hex") {
+            option = 1
+        } else if (text === "btn-simple") {
+            option = 0
+        } else if (text === "btn-click") {
+            let color = container[option]
+            document.body.style.backgroundColor = color;
+            span.innerText = color;
+        }
+    })
 }
 
 run()
 
 // background color
+// simple color
+function simpleBG() {
+    const SimpleHexValues = ["#000000", "#FF0000", "#00FF00", "#0000FF", "#FFFFFF"];
+    const randomNum = Math.floor(Math.random() * SimpleHexValues.length);
+    return SimpleHexValues[randomNum]
+}
 
-
+// hex values
 // produce letter and number
 function letterAndNumber() {
     let letter = randomLetterAndAlphabet();
@@ -48,5 +65,8 @@ function randomLetterAndAlphabet() {
 function onlyLettersAndNumbers(str) {
     return /^[A-Za-z0-9]*$/.test(str);
 }
+
+// style
+
 
 // console.log(String.fromCharCode(65));
