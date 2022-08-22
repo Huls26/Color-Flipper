@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Flipper</title>
+    <link rel="stylesheet" href="style.css">
     <script defer src="./colorFlipper.js"></script>
 </head>
 <body>
     <header class="header">
-        <p class="title">Color Flipper</p>
+        <nav>
+            <p class="title">Color Flipper</p>
 
-        <div>
-            <button class="btn-simple">Simple</button>
-            <button class="btn-hex">Hex</button>
-        </div>
-       
+            <div class="btn-top">
+                <button class="btn-simple btn-nav">Simple</button>
+                <button class="btn-hex btn-nav">Hex</button>
+            </div>
+        </nav>
     </header>
 
     <section class="info">
-        <h1 class="bgc">Background Color: <span class="hex"></span></h1>
-        <button class="btn-click">CLICK ME</button>
+            <h1 class="bgc">Background Color: <span class="hex"></span></h1>
+            <button class="btn-click">CLICK ME</button>
     </section>
 
 </body>
